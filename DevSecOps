@@ -20,16 +20,12 @@ pipeline {
                 bat 'npm test || exit /b 0'
             }
             post {
-    always {
-        emailext(
-            subject: "Test Stage Completed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: """The 'Run Tests' stage has finished running.
-Please check Jenkins for the detailed logs attached.""",
-            to: 's224936442@deakin.edu.au',
-            attachLog: true
-        )
-    }
-}
+                success{
+                    mail to: "s224936442@deakin.edu.au",
+                    subject: "Test Status Email",
+                    body: "Test stage was successful!"
+                }
+            }
         }
 
         stage('Generate Coverage Report') {
@@ -43,16 +39,12 @@ Please check Jenkins for the detailed logs attached.""",
                 bat 'npm audit || exit /b 0'
             }
             post {
-    always {
-        emailext(
-            subject: "Security Scan Completed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: """The 'Security Scan' stage has finished running.
-Please check Jenkins for any vulnerabilities and review the attached logs.""",
-            to: 's224936442@deakin.edu.au',
-            attachLog: true
-        )
-    }
-}
+                success{
+                    mail to: "s224936442@deakin.edu.au",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan stage was successful!"
+                }
+            }
         }
     }
 }
