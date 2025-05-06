@@ -24,7 +24,7 @@ pipeline {
                     emailext(
                         subject: "Test Stage Complete - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "The 'Run Tests' stage has completed. Status: ${currentBuild.result}\nCheck Jenkins for logs.",
-                        to: 'your-email@example.com',
+                        to: 'attanayakekeshani@gmail.com',
                         attachLog: true
                     )
                 }
@@ -46,7 +46,7 @@ pipeline {
                     emailext(
                         subject: "Security Scan Complete - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "The 'Security Scan' stage has completed. Status: ${currentBuild.result}\nCheck Jenkins for logs.",
-                        to: 'your-email@example.com',
+                        to: 'attanayakekeshani@gmail.com',
                         attachLog: true
                     )
                 }
