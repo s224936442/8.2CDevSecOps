@@ -22,7 +22,7 @@ pipeline {
             post {
                 success {
                     emailext(
-                        to: "s224936442@deakin.edu.au",
+                        to: "attanayakekeshani@gmail.com",
                         subject: "SUCCESS: ${env.JOB_NAME} - Test Stage (#${env.BUILD_NUMBER})",
                         body: "The 'Run Tests' stage completed successfully.\nCheck Jenkins for details.",
                         attachLog: true
@@ -30,7 +30,7 @@ pipeline {
                 }
                 failure {
                     emailext(
-                        to: "s224936442@deakin.edu.au",
+                        to: "attanayakekeshani@gmail.com",
                         subject: "FAILURE: ${env.JOB_NAME} - Test Stage (#${env.BUILD_NUMBER})",
                         body: "The 'Run Tests' stage failed.\nCheck Jenkins for details.",
                         attachLog: true
@@ -52,7 +52,7 @@ pipeline {
             post {
                 success {
                     emailext(
-                        to: "s224936442@deakin.edu.au",
+                        to: "attanayakekeshani@gmail.com",
                         subject: "SUCCESS: ${env.JOB_NAME} - Security Scan Stage (#${env.BUILD_NUMBER})",
                         body: "The 'Security Scan' stage completed successfully.\nCheck Jenkins for details.",
                         attachLog: true
@@ -60,7 +60,7 @@ pipeline {
                 }
                 failure {
                     emailext(
-                        to: "s224936442@deakin.edu.au",
+                        to: "attanayakekeshani@gmail.com",
                         subject: "FAILURE: ${env.JOB_NAME} - Security Scan Stage (#${env.BUILD_NUMBER})",
                         body: "The 'Security Scan' stage failed.\nCheck Jenkins for details.",
                         attachLog: true
