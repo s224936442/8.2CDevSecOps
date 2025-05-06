@@ -19,6 +19,16 @@ pipeline {
             steps {
                 bat 'npm test || exit /b 0'
             }
+            post {
+                always {
+                    emailext(
+                        subject: "Test Stage Complete - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        body: "The 'Run Tests' stage has completed. Status: ${currentBuild.result}\nCheck Jenkins for logs.",
+                        to: 'your-email@example.com',
+                        attachLog: true
+                    )
+                }
+            }
         }
 
         stage('Generate Coverage Report') {
@@ -30,6 +40,16 @@ pipeline {
         stage('NPM Audit (Security Scan)') {
             steps {
                 bat 'npm audit || exit /b 0'
+            }
+            post {
+                always {
+                    emailext(
+                        subject: "Security Scan Complete - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        body: "The 'Security Scan' stage has completed. Status: ${currentBuild.result}\nCheck Jenkins for logs.",
+                        to: 'your-email@example.com',
+                        attachLog: true
+                    )
+                }
             }
         }
     }
