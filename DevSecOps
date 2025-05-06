@@ -25,7 +25,7 @@ pipeline {
             subject: "Test Stage Completed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: """The 'Run Tests' stage has finished running.
 Please check Jenkins for the detailed logs attached.""",
-            to: 'attanayakekeshani@gmail.com',
+            to: 's224936442@deakin.edu.au',
             attachLog: true
         )
     }
@@ -48,7 +48,7 @@ Please check Jenkins for the detailed logs attached.""",
             subject: "Security Scan Completed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: """The 'Security Scan' stage has finished running.
 Please check Jenkins for any vulnerabilities and review the attached logs.""",
-            to: 'attanayakekeshani@gmail.com',
+            to: 's224936442@deakin.edu.au',
             attachLog: true
         )
     }
