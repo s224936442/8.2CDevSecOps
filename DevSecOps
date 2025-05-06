@@ -26,6 +26,13 @@ pipeline {
                     body: "Test stage was successful!"
                 }
             }
+            post {
+                failure{
+                    mail to: "s224936442@deakin.edu.au",
+                    subject: "Test Status Email",
+                    body: "Test stage failed!"
+                }
+            }
         }
 
         stage('Generate Coverage Report') {
@@ -43,6 +50,13 @@ pipeline {
                     mail to: "s224936442@deakin.edu.au",
                     subject: "Security Scan Status Email",
                     body: "Security Scan stage was successful!"
+                }
+            }
+            post {
+                failure{
+                    mail to: "s224936442@deakin.edu.au",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan stage failed!"
                 }
             }
         }
