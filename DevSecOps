@@ -19,13 +19,6 @@ pipeline {
             steps {
                 bat 'npm test || exit /b 0'
             }
-            post {
-                success{
-                    mail to: "s224936442@deakin.edu.au",
-                    subject: "Test Status Email",
-                    body: "Test stage was successful!"
-                }
-            }
         }
 
         stage('Generate Coverage Report') {
@@ -37,13 +30,6 @@ pipeline {
         stage('NPM Audit (Security Scan)') {
             steps {
                 bat 'npm audit || exit /b 0'
-            }
-            post {
-                success{
-                    mail to: "s224936442@deakin.edu.au",
-                    subject: "Security Scan Status Email",
-                    body: "Security Scan stage was successful!"
-                }
             }
         }
     }
